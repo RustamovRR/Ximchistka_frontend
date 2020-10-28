@@ -1,26 +1,48 @@
 import React from 'react'
 
-export function AdminABout({ item }) {
+export function AdminABout({ items }) {
+    console.log(items)
     return (
         <div>
-            {
-                // item.map((e) => (
-                //     <p>{e.uz}</p>
-                // ))
-            }
-            <form style={{ width: '80%', margin: '0 auto' }} >
+            <form style={{ width: '80%', margin: '0 auto' }} action='http://localhost:4000/about' method='POST' >
+
                 <div class="form-group mb-3">
                     <label for="title" >Матн сарлавҳаси</label>
-                    <textarea class="form-control" id="title" rows="3"></textarea>
-                    <input type="text" />
+                    <input class="form-control" id="title" name='uz[title]' rows="3"></input>
                 </div>
                 <div class="form-group mb-3">
-                    <label for="text" >Матн</label>
-                    <textarea class="form-control" id="text" rows="3"></textarea>
+                    <label for="body" >Матн</label>
+                    <input class="form-control" id="body" name='uz[body]' rows="3"></input>
                 </div>
+                <div class="form-group mb-3">
+                    <label for="body" >Матн</label>
+                    <input class="form-control" id="body" name='uz[address]' rows="3"></input>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="title" >Ru сарлавҳаси</label>
+                    <input class="form-control" id="title" name='ru[title]' rows="3"></input>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="body" >Ru body</label>
+                    <input class="form-control" id="body" name='ru[body]' rows="3"></input>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="body" >Ru address</label>
+                    <input class="form-control" id="body" name='ru[address]' rows="3"></input>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="body" >Phone</label>
+                    <input class="form-control" id="body" name='phone' rows="3"></input>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="body" >Email</label>
+                    <input class="form-control" id="body" name='email' rows="3"></input>
+                </div>
+
                 <div class="form-group">
                     <label for="image">Расм юклаш</label>
-                    <input type="file" class="form-control-file" id="image" />
+                    <input type="file" class="form-control-file" id="image" name='image' />
                 </div>
                 <button type="submit" class="btn btn-primary mb-2">Пост қилиш</button>
             </form>

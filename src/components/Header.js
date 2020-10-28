@@ -23,7 +23,7 @@ export function Header() {
                         <div class="collapse navbar-collapse" id="navbarText">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item ">
-                                    <a class="nav-link" href="#home">{t('home')}</a>
+                                    <a class="nav-link" href="#home">{t(`home`)}</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#about">{t('about')}</a>

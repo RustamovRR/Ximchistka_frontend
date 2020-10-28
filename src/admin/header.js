@@ -17,9 +17,10 @@ export function HeaderAdmin() {
     useEffect(() => {
         const fetchData = async () => {
             let result = await axios('http://localhost:4000/about')
-            setUzLang(result.data.uz)
+            setUzLang(result.data)
             setRuLang(result.data.ru)
             setPhone(result.data.phone)
+            console.log(result)
         }
         fetchData()
     }, [])
@@ -30,16 +31,18 @@ export function HeaderAdmin() {
 
             <div class="bg-light border-right pt-5" id="sidebar-wrapper" style={{ height: '100vh' }} >
                 <div class="list-group list-group-flush ">
-                    <Link to='/about' class="list-group-item list-group-item-action bg-light">About</Link>
-                    <Link to='/service' class="list-group-item list-group-item-action bg-light">Service</Link>
-                    <Link to='/gallery' class="list-group-item list-group-item-action bg-light">Galereya</Link>
+                    <Link to='/admin/service' class="list-group-item list-group-item-action bg-light">Хизматлар</Link>
+                    <Link to='/admin/gallery' class="list-group-item list-group-item-action bg-light">Галерея</Link>
+                    <Link to='/admin/about' class="list-group-item list-group-item-action bg-light">Биз ҳақимизда</Link>
                 </div>
 
             </div>
             <div id="page-content-wrapper" style={{ width: '100vw' }}>
 
                 <nav class="navbar navbar-expand-lg navbar-light w-100 bg-light" >
-                    <a href="#" class="logo"><img src={logo} width='85px' alt="" class="img-fluid" /></a>
+
+                    <a href="/" class="logo"><img src={logo} width='85px' alt="" class="img-fluid" /></a>
+
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -53,10 +56,10 @@ export function HeaderAdmin() {
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link" href="#services">services</a>
-                            </li>
+                           </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#gallery">gallery</a>
-                            </li>
+                            </li> 
                             <li class="nav-item">
                                 <a class="nav-link" href="#contact">contact</a>
                             </li>
@@ -66,9 +69,9 @@ export function HeaderAdmin() {
 
                 <div class="container-fluid mt-5">
                     <Switch>
-                        <Route exact path='/about'><AdminABout item={uzLang} /></Route>
-                        <Route exact path='/gallery'><AdminGallery /></Route>
-                        <Route exact path='/service'><AdminService /></Route>
+                        <Route  path='/admin/about'><AdminABout items={uzLang} /></Route>
+                        <Route  path='/admin/gallery'><AdminGallery /></Route>
+                        <Route  path='/admin/service'><AdminService /></Route>
                     </Switch>
                 </div>
             </div>

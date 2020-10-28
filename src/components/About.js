@@ -9,7 +9,6 @@ export function About({ items, uzItem, ruItem }) {
 
     return (
         <div id='about'>
-            <h1>{uzItem.address}</h1>
             <section id="about-video" class="about-video">
                 <div class="container" data-aos="fade-up">
 
@@ -21,7 +20,7 @@ export function About({ items, uzItem, ruItem }) {
                     <div class="row">
 
                         <div class="col-lg-6 video-box align-self-baseline" data-aos="fade-right" data-aos-delay="100">
-                            <img src={`../uploads/${items.image}`} class='img-fluid' alt="" style={{ minHeight: '50vh' }} />
+                            <img src='https://im0-tub-com.yandex.net/i?id=3b3da2f953b16f9344e9152e995736fb&n=13' class='img-fluid' alt="" style={{ minHeight: '50vh' }} />
                         </div>
 
                         <div class="col-lg-6 pt-3 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">

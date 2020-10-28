@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import './style.css'
@@ -18,11 +18,23 @@ import img13 from '../img/gallery13.jpg'
 import img14 from '../img/gallery14.jpg'
 import img15 from '../img/gallery15.jpg'
 import img16 from '../img/gallery16.jpg'
+import axios from 'axios'
 
 const imgArray = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16]
 
 export function Gallery() {
     const { t } = useTranslation()
+    const [image, setImage] = useState([])
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+            let result = await axios('http://localhost:4000/gallery')
+            setImage(result.data)
+        }
+        fetchData()
+    }, [])
+
 
     return (
         <div id='gallery'>
@@ -36,11 +48,11 @@ export function Gallery() {
 
                     <div class="row no-gutters" data-aos="fade-left">
                         {
-                            imgArray.map((img) => (
+                            image.map((img) => (
                                 <div class="col-lg-3 col-md-4">
                                     <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-                                        <a href={img} target='_blank' class="venobox" data-gall="gallery-item">
-                                            <img src={img} alt="" class="img-fluid" />
+                                        <a href={`http://localhost:4000/${img.image}`} target='_blank' class="venobox" data-gall="gallery-item">
+                                            <img src={`http://localhost:4000/${img.image}`} alt='ms' class="img-fluid" />
                                         </a>
                                     </div>
                                 </div>

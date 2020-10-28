@@ -4,10 +4,10 @@ export function AdminGallery() {
     return (
         <div>
             <h1>Галерея</h1>
-            <form style={{ width: '80%', margin: '0 auto' }} >
+            <form style={{ width: '80%', margin: '0 auto' }}  action='http://localhost:4000/gallery' method='POST' enctype="multipart/form-data">
                 <div class="form-group m-5">
                     <label for="image">Галереяга расм қўшиш учун расм юкланг</label>
-                    <input type="file" class="form-control-file" id="image" />
+                    <input type="file" class="form-control-file" id="image" name='image' />
                 </div>
                 <button type="submit" class="btn btn-primary mb-2">Расм юклаш</button>
             </form>

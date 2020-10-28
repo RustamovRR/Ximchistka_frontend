@@ -26,7 +26,7 @@ export function Contact() {
                                     <div class="address">
                                         <i class="icofont-google-map"></i>
                                         <h4> {t('address')} : </h4>
-                                        <p>Тошкент шаҳар Сергели тумани</p>
+                                        <p>Тошкент шаҳар Юнусобод тумани</p>
                                     </div>
 
                                     <div class="email">
@@ -51,7 +51,7 @@ export function Contact() {
 
                             <div class="mapouter">
                                 <div >
-                                    <iframe class="gmap_canvas" id="gmap_canvas" src="https://maps.google.com/maps?q=tashkent&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                                    <iframe class="gmap_canvas" id="gmap_canvas" src="https://maps.google.com/maps?q=yunusobod%20district&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
                                     </iframe><a href="https://2torrentz.net"></a></div>
                             </div>
                         </div>

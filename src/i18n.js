@@ -1,7 +1,7 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import translationRus from './translationRus.json'
-import translationUzb from './translationUzb.json'
+import { translationRus } from './translationRus'
+import { translationUzb } from './translationUzb'
 
 const resources = {
     uzb: {
@@ -17,7 +17,6 @@ i18n
     .init({
         resources,
         lng: 'uzb',
-
         keySeparator: false, // we do not use keys in form messages.welcome
 
         interpolation: {
