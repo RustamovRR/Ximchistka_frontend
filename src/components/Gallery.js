@@ -52,7 +52,7 @@ export function Gallery() {
                                 <div class="col-lg-3 col-md-4">
                                     <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
                                         <a href={`http://localhost:4000/${img.image}`} target='_blank' class="venobox" data-gall="gallery-item">
-                                            <img src={`http://localhost:4000/${img.image}`} alt='ms' class="img-fluid" />
+                                            <img src={`http://localhost:4000/${img.image}`} alt='galereya' class="img-fluid" />
                                         </a>
                                     </div>
                                 </div>

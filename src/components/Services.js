@@ -26,7 +26,6 @@ export function Services() {
         }
         fetchData()
     }, [])
-    console.log(service)
 
     return (
         <div id='services'>

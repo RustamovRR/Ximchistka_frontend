@@ -51,10 +51,11 @@ export function Contact() {
 
                             <div class="mapouter">
                                 <div >
-                                    <iframe class="gmap_canvas" id="gmap_canvas" src="https://maps.google.com/maps?q=yunusobod%20district&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                                    <iframe class="gmap_canvas" id="gmap_canvas" src="https://maps.google.com/maps?q=toshkent%20shahar%20yunusobod%20&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
                                     </iframe><a href="https://2torrentz.net"></a></div>
                             </div>
                         </div>
+
                     </div>
                 </section>
 

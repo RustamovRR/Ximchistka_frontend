@@ -20,62 +20,62 @@ export function HeaderAdmin() {
             setUzLang(result.data)
             setRuLang(result.data.ru)
             setPhone(result.data.phone)
-            console.log(result)
         }
         fetchData()
     }, [])
 
 
     return (
-        <div class="d-flex" id="wrapper">
+        <BrowserRouter>
+            <div class="d-flex" id="wrapper">
 
-            <div class="bg-light border-right pt-5" id="sidebar-wrapper" style={{ height: '100vh' }} >
-                <div class="list-group list-group-flush ">
-                    <Link to='/admin/service' class="list-group-item list-group-item-action bg-light">Хизматлар</Link>
-                    <Link to='/admin/gallery' class="list-group-item list-group-item-action bg-light">Галерея</Link>
-                    <Link to='/admin/about' class="list-group-item list-group-item-action bg-light">Биз ҳақимизда</Link>
-                </div>
-
-            </div>
-            <div id="page-content-wrapper" style={{ width: '100vw' }}>
-
-                <nav class="navbar navbar-expand-lg navbar-light w-100 bg-light" >
-
-                    <a href="/" class="logo"><img src={logo} width='85px' alt="" class="img-fluid" /></a>
-
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarText">
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item ">
-                                <a class="nav-link" href="#home">home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#about">about</a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="#services">services</a>
-                           </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#gallery">gallery</a>
-                            </li> 
-                            <li class="nav-item">
-                                <a class="nav-link" href="#contact">contact</a>
-                            </li>
-                        </ul>
+                <div class="bg-light border-right pt-5" id="sidebar-wrapper" style={{ height: '100vh' }} >
+                    <div class="list-group list-group-flush ">
+                        <Link to='/admin5f98f6612e07524d23e9323e/service' class="list-group-item list-group-item-action bg-light">Хизматлар</Link>
+                        <Link to='/admin5f98f6612e07524d23e9323e/gallery' class="list-group-item list-group-item-action bg-light">Галерея</Link>
+                        <Link to='/admin5f98f6612e07524d23e9323e/about' class="list-group-item list-group-item-action bg-light">Биз ҳақимизда</Link>
                     </div>
-                </nav>
 
-                <div class="container-fluid mt-5">
-                    <Switch>
-                        <Route  path='/admin/about'><AdminABout items={uzLang} /></Route>
-                        <Route  path='/admin/gallery'><AdminGallery /></Route>
-                        <Route  path='/admin/service'><AdminService /></Route>
-                    </Switch>
                 </div>
-            </div>
+                <div id="page-content-wrapper" style={{ width: '100vw' }}>
 
-        </div>
+                    <nav class="navbar navbar-expand-lg navbar-light w-100 bg-light" >
+
+                        <a href="/" class="logo"><img src={logo} width='85px' alt="" class="img-fluid" /></a>
+
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarText">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item ">
+                                    <a class="nav-link" >home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" >about</a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link" >services</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" >gallery</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" >contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+
+                    <div class="container-fluid mt-5">
+                        <Switch>
+                            <Route exact path='/admin5f98f6612e07524d23e9323e/about'><AdminABout items={uzLang} /></Route>
+                            <Route exact path='/admin5f98f6612e07524d23e9323e/gallery'><AdminGallery /></Route>
+                            <Route exact path='/admin5f98f6612e07524d23e9323e/service'><AdminService /></Route>
+                        </Switch>
+                    </div>
+                </div>
+            </div >
+        </BrowserRouter>
     )
 }

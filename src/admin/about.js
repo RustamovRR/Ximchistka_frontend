@@ -1,7 +1,6 @@
 import React from 'react'
 
 export function AdminABout({ items }) {
-    console.log(items)
     return (
         <div>
             <form style={{ width: '80%', margin: '0 auto' }} action='http://localhost:4000/about' method='POST' >
