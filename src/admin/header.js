@@ -4,6 +4,7 @@ import { AdminABout } from './about';
 import { AdminGallery } from './gallery';
 import { AdminService } from './service';
 import axios from 'axios';
+import 'dotenv/config'
 
 import logo from '../img/logo.jpg'
 
@@ -12,6 +13,7 @@ export function HeaderAdmin() {
     const [uzLang, setUzLang] = useState([])
     const [ruLang, setRuLang] = useState([])
     const [phone, setPhone] = useState([])
+    const admin_url = process.env.admin_url
 
 
     useEffect(() => {
@@ -31,9 +33,9 @@ export function HeaderAdmin() {
 
                 <div class="bg-light border-right pt-5" id="sidebar-wrapper" style={{ height: '100vh' }} >
                     <div class="list-group list-group-flush ">
-                        <Link to='/admin5f98f6612e07524d23e9323e/service' class="list-group-item list-group-item-action bg-light">Хизматлар</Link>
-                        <Link to='/admin5f98f6612e07524d23e9323e/gallery' class="list-group-item list-group-item-action bg-light">Галерея</Link>
-                        <Link to='/admin5f98f6612e07524d23e9323e/about' class="list-group-item list-group-item-action bg-light">Биз ҳақимизда</Link>
+                        <Link to={`/${admin_url}/service`} class="list-group-item list-group-item-action bg-light">Хизматлар</Link>
+                        <Link to={`/${admin_url}/gallery`} class="list-group-item list-group-item-action bg-light">Галерея</Link>
+                        <Link to={`/${admin_url}/about`} class="list-group-item list-group-item-action bg-light">Биз ҳақимизда</Link>
                     </div>
 
                 </div>
@@ -69,9 +71,9 @@ export function HeaderAdmin() {
 
                     <div class="container-fluid mt-5">
                         <Switch>
-                            <Route exact path='/admin5f98f6612e07524d23e9323e/about'><AdminABout items={uzLang} /></Route>
-                            <Route exact path='/admin5f98f6612e07524d23e9323e/gallery'><AdminGallery /></Route>
-                            <Route exact path='/admin5f98f6612e07524d23e9323e/service'><AdminService /></Route>
+                            <Route exact path={`/${admin_url}/service`}><AdminABout items={uzLang} /></Route>
+                            <Route exact path={`/${admin_url}/gallery`}><AdminGallery /></Route>
+                            <Route exact path={`/${admin_url}/about`}><AdminService /></Route>
                         </Switch>
                     </div>
                 </div>
