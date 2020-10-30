@@ -4,21 +4,22 @@ import { AdminABout } from './about';
 import { AdminGallery } from './gallery';
 import { AdminService } from './service';
 import axios from 'axios';
-import 'dotenv/config'
-
 import logo from '../img/logo.jpg'
+import { GLOBAL } from './../GLOBAL';
 
 export function HeaderAdmin() {
 
     const [uzLang, setUzLang] = useState([])
     const [ruLang, setRuLang] = useState([])
     const [phone, setPhone] = useState([])
-    const admin_url = process.env.admin_url
+
+    const admin_url = GLOBAL.admin_url
+    const localhost = GLOBAL.backend
 
 
     useEffect(() => {
         const fetchData = async () => {
-            let result = await axios('http://localhost:4000/about')
+            let result = await axios(`${localhost}/about`)
             setUzLang(result.data)
             setRuLang(result.data.ru)
             setPhone(result.data.phone)
@@ -71,9 +72,9 @@ export function HeaderAdmin() {
 
                     <div class="container-fluid mt-5">
                         <Switch>
-                            <Route exact path={`/${admin_url}/service`}><AdminABout items={uzLang} /></Route>
+                            <Route exact path={`/${admin_url}/service`}><AdminService items={uzLang} /></Route>
                             <Route exact path={`/${admin_url}/gallery`}><AdminGallery /></Route>
-                            <Route exact path={`/${admin_url}/about`}><AdminService /></Route>
+                            <Route exact path={`/${admin_url}/about`}><AdminABout /></Route>
                         </Switch>
                     </div>
                 </div>

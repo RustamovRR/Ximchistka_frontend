@@ -2,34 +2,21 @@ import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import './style.css'
-import img1 from '../img/gallery1.jpg'
-import img2 from '../img/gallery2.jpg'
-import img3 from '../img/gallery3.jpg'
-import img4 from '../img/gallery4.jpg'
-import img5 from '../img/gallery5.jpg'
-import img6 from '../img/gallery6.jpg'
-import img7 from '../img/gallery7.jpg'
-import img8 from '../img/gallery8.jpg'
-import img9 from '../img/gallery9.jpg'
-import img10 from '../img/gallery10.jpg'
-import img11 from '../img/gallery11.jpg'
-import img12 from '../img/gallery12.jpg'
-import img13 from '../img/gallery13.jpg'
-import img14 from '../img/gallery14.jpg'
-import img15 from '../img/gallery15.jpg'
-import img16 from '../img/gallery16.jpg'
 import axios from 'axios'
+import 'dotenv/config'
+import { GLOBAL } from '../GLOBAL'
 
-const imgArray = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16]
 
 export function Gallery() {
     const { t } = useTranslation()
     const [image, setImage] = useState([])
 
+    const localhost = GLOBAL.backend
+
 
     useEffect(() => {
         const fetchData = async () => {
-            let result = await axios('http://localhost:4000/gallery')
+            let result = await axios(`${localhost}/gallery`)
             setImage(result.data)
         }
         fetchData()
@@ -51,8 +38,8 @@ export function Gallery() {
                             image.map((img) => (
                                 <div class="col-lg-3 col-md-4">
                                     <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-                                        <a href={`http://localhost:4000/${img.image}`} target='_blank' class="venobox" data-gall="gallery-item">
-                                            <img src={`http://localhost:4000/${img.image}`} alt='galereya' class="img-fluid" />
+                                        <a href={`${localhost}/${img.image}`} target='_blank' class="venobox" data-gall="gallery-item">
+                                            <img src={`${localhost}/${img.image}`} alt='galereya' class="img-fluid" />
                                         </a>
                                     </div>
                                 </div>

@@ -1,10 +1,13 @@
 import React from 'react'
+import { GLOBAL } from './../GLOBAL';
 
 export function AdminGallery() {
+    const localhost = GLOBAL.backend
+
     return (
         <div>
             <h1>Галерея</h1>
-            <form style={{ width: '80%', margin: '0 auto' }}  action='http://localhost:4000/gallery' method='POST' enctype="multipart/form-data">
+            <form style={{ width: '80%', margin: '0 auto' }} action={`${localhost}/gallery`} method='POST' enctype="multipart/form-data">
                 <div class="form-group m-5">
                     <label for="image">Галереяга расм қўшиш учун расм юкланг</label>
                     <input type="file" class="form-control-file" id="image" name='image' />

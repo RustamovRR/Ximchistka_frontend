@@ -7,6 +7,7 @@ import { Gallery } from './Gallery';
 import { Contact } from './Contact';
 import { BrowserRouter, Link, Route } from 'react-router-dom/cjs/react-router-dom.min';
 import axios from 'axios';
+import { GLOBAL } from './../GLOBAL';
 
 export function Client() {
 
@@ -15,10 +16,12 @@ export function Client() {
     const [ruLang, setRuLang] = useState([])
     const [phone, setPhone] = useState([])
 
+    const localhost = GLOBAL.backend
+
 
     useEffect(() => {
         const fetchData = async () => {
-            let result = await axios('http://localhost:4000/about')
+            let result = await axios(`${localhost}/about`)
             setValue(result.data)
             setUzLang(result.data.uz)
             setRuLang(result.data.ru)

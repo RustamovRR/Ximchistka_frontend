@@ -1,10 +1,19 @@
 import React from 'react'
+import axios from 'axios'
+import { GLOBAL } from '../GLOBAL'
 
 export function AdminService() {
+    const localhost = GLOBAL.backend
+
+    const handleSubmit = () => {
+        axios.post()
+    }
+
     return (
         <div>
             <h1>Хизматлар</h1>
-            <form style={{ width: '80%', margin: '0 auto' }} action='http://localhost:4000/service' method='POST' enctype="multipart/form-data" class='form_service'>
+            <form style={{ width: '80%', margin: '0 auto' }} action={`${localhost}/service`} method='POST' enctype="multipart/form-data" class='form_service'>
+
                 <div class="form-group">
                     <label for="image">Расм юклаш</label>
                     <input type="file" class="form-control-file" id="image" name='image' />

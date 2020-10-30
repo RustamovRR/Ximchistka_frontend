@@ -1,9 +1,12 @@
 import React from 'react'
+import { GLOBAL } from './../GLOBAL';
 
-export function AdminABout({ items }) {
+export function AdminABout() {
+    const localhost = GLOBAL.backend
+
     return (
         <div>
-            <form style={{ width: '80%', margin: '0 auto' }} action='http://localhost:4000/about' method='POST' >
+            <form style={{ width: '80%', margin: '0 auto' }} action={`${localhost}/about`} method='POST' >
 
                 <div class="form-group mb-3">
                     <label for="title" >Матн сарлавҳаси</label>

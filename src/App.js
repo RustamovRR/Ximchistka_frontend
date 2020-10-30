@@ -5,11 +5,12 @@ import './App.css'
 import { HeaderAdmin } from './admin/header'
 import { Client } from './components/Client';
 import { Login } from './admin/login';
-import 'dotenv/config'
+import { GLOBAL } from './GLOBAL'
 
 
 export default function App() {
-  const admin_url = process.env.admin_url
+  const admin_url = GLOBAL.admin_url
+  const frontend = GLOBAL.frontend
   const [logged, setLogged] = useState(false)
 
   return (

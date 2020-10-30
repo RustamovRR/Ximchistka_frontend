@@ -12,16 +12,19 @@ import service6 from '../img/service6.jpg'
 import service7 from '../img/service7.jpg'
 import service8 from '../img/service8.jpg'
 import service9 from '../img/service9.jpg'
+import 'dotenv/config'
+import { GLOBAL } from '../GLOBAL'
 
 export function Services() {
     const { t } = useTranslation()
-
     const [service, setService] = useState([])
+
+    const localhost = GLOBAL.backend
 
 
     useEffect(() => {
         const fetchData = async () => {
-            let result = await axios('http://localhost:4000/service')
+            let result = await axios(`${localhost}/service`)
             setService(result.data[0])
         }
         fetchData()

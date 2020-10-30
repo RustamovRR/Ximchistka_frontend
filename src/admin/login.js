@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min'
-import 'dotenv/config'
+import { GLOBAL } from './../GLOBAL';
 
 export function Login({ logged }) {
     const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
-    const admin_url = process.env.admin_url
+
+    const admin_url = GLOBAL.admin_url
+    const localhost = GLOBAL.backend
+    const frontend = GLOBAL.frontend
 
     const changeLogin = (e) => {
         setLogin(e.target.value)
@@ -15,7 +18,7 @@ export function Login({ logged }) {
     }
 
     const handleSubmit = (index) => {
-        fetch('http://localhost:4000/login', {
+        fetch(`${localhost}/login`, {
             method: 'POST',
             mode: 'cors',
             headers: { 'Content-Type': 'application/json' },
@@ -26,7 +29,7 @@ export function Login({ logged }) {
         })
             .then((res) => {
                 if (res.status === 200)
-                    res.redirected = window.location.href = `http://localhost:3000/${admin_url}`
+                    res.redirected = window.location.href = `${frontend}/${admin_url}`
 
                 return alert('Login yoki parol xato!')
             })
@@ -47,7 +50,7 @@ export function Login({ logged }) {
                                             <h3 class="text-center font-weight-light my-4">Login</h3>
                                         </div>
                                         <div class="card-body">
-                                            <form method='POST' action='http://localhost:4000/login' onSubmit={handleSubmit}>
+                                            <form method='POST' action={`${localhost}/login`} onSubmit={handleSubmit}>
                                                 <div class="form-group">
                                                     <label class="small mb-1" for="login">Login</label>
                                                     <input class="form-control py-4" name="login" required value={login} onChange={changeLogin}
