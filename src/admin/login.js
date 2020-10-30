@@ -18,7 +18,7 @@ export function Login({ logged }) {
     }
 
     const handleSubmit = (index) => {
-        fetch(`${localhost}/login`, {
+        fetch(`${localhost}/api/login`, {
             method: 'POST',
             mode: 'cors',
             headers: { 'Content-Type': 'application/json' },
@@ -50,7 +50,7 @@ export function Login({ logged }) {
                                             <h3 class="text-center font-weight-light my-4">Login</h3>
                                         </div>
                                         <div class="card-body">
-                                            <form method='POST' action={`${localhost}/login`} onSubmit={handleSubmit}>
+                                            <form method='POST' action={`${localhost}/api/login`} onSubmit={handleSubmit}>
                                                 <div class="form-group">
                                                     <label class="small mb-1" for="login">Login</label>
                                                     <input class="form-control py-4" name="login" required value={login} onChange={changeLogin}

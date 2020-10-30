@@ -21,7 +21,7 @@ export function Client() {
 
     useEffect(() => {
         const fetchData = async () => {
-            let result = await axios(`${localhost}/about`)
+            let result = await axios(`${localhost}/api/about`)
             setValue(result.data)
             setUzLang(result.data.uz)
             setRuLang(result.data.ru)

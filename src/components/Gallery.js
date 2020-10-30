@@ -16,7 +16,7 @@ export function Gallery() {
 
     useEffect(() => {
         const fetchData = async () => {
-            let result = await axios(`${localhost}/gallery`)
+            let result = await axios(`${localhost}/api/gallery`)
             setImage(result.data)
         }
         fetchData()
@@ -38,8 +38,8 @@ export function Gallery() {
                             image.map((img) => (
                                 <div class="col-lg-3 col-md-4">
                                     <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-                                        <a href={`${localhost}/${img.image}`} target='_blank' class="venobox" data-gall="gallery-item">
-                                            <img src={`${localhost}/${img.image}`} alt='galereya' class="img-fluid" />
+                                        <a href={`${localhost}/api/${img.image}`} target='_blank' class="venobox" data-gall="gallery-item">
+                                            <img src={`${localhost}/api/${img.image}`} alt='galereya' class="img-fluid" />
                                         </a>
                                     </div>
                                 </div>

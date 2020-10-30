@@ -6,8 +6,9 @@ export function AdminABout() {
 
     return (
         <div>
-            <form style={{ width: '80%', margin: '0 auto' }} action={`${localhost}/about`} method='POST' >
+            <form style={{ width: '80%', margin: '0 auto' }} action={`${localhost}/api/about`} method='POST' >
 
+                <h1>Биз ҳақимизда</h1>
                 <div class="form-group mb-3">
                     <label for="title" >Матн сарлавҳаси</label>
                     <input class="form-control" id="title" name='uz[title]' rows="3"></input>

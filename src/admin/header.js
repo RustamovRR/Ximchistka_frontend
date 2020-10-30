@@ -19,7 +19,7 @@ export function HeaderAdmin() {
 
     useEffect(() => {
         const fetchData = async () => {
-            let result = await axios(`${localhost}/about`)
+            let result = await axios(`${localhost}/api/about`)
             setUzLang(result.data)
             setRuLang(result.data.ru)
             setPhone(result.data.phone)

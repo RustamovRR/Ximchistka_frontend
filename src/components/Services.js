@@ -24,7 +24,7 @@ export function Services() {
 
     useEffect(() => {
         const fetchData = async () => {
-            let result = await axios(`${localhost}/service`)
+            let result = await axios(`${localhost}/api/service`)
             setService(result.data[0])
         }
         fetchData()
