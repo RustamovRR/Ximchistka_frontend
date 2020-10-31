@@ -5,9 +5,6 @@ import { GLOBAL } from '../GLOBAL'
 export function AdminService() {
     const localhost = GLOBAL.backend
 
-    const handleSubmit = () => {
-        axios.post()
-    }
 
     return (
         <div>

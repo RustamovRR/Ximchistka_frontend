@@ -15,6 +15,7 @@ export function HeaderAdmin() {
 
     const admin_url = GLOBAL.admin_url
     const localhost = GLOBAL.backend
+    const frontend = GLOBAL.frontend
 
 
     useEffect(() => {
@@ -34,9 +35,9 @@ export function HeaderAdmin() {
 
                 <div class="bg-light border-right pt-5" id="sidebar-wrapper" style={{ height: '100vh' }} >
                     <div class="list-group list-group-flush ">
-                        <Link to={`/${admin_url}/service`} class="list-group-item list-group-item-action bg-light">Хизматлар</Link>
                         <Link to={`/${admin_url}/gallery`} class="list-group-item list-group-item-action bg-light">Галерея</Link>
                         <Link to={`/${admin_url}/about`} class="list-group-item list-group-item-action bg-light">Биз ҳақимизда</Link>
+                        <Link to={`/${admin_url}/service`} class="list-group-item list-group-item-action bg-light">Хизматлар</Link>
                     </div>
 
                 </div>
@@ -44,7 +45,7 @@ export function HeaderAdmin() {
 
                     <nav class="navbar navbar-expand-lg navbar-light w-100 bg-light" >
 
-                        <a href="/" class="logo"><img src={logo} width='85px' alt="" class="img-fluid" /></a>
+                        <a href={`${frontend}/${admin_url}`} class="logo"><img src={logo} width='85px' alt="" class="img-fluid" /></a>
 
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
