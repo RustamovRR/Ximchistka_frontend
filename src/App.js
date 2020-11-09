@@ -11,7 +11,6 @@ import { GLOBAL } from './GLOBAL'
 export default function App() {
   const admin_url = GLOBAL.admin_url
   const frontend = GLOBAL.frontend
-  const [logged, setLogged] = useState(false)
 
   return (
     <BrowserRouter >
@@ -26,7 +25,6 @@ export default function App() {
           <Route path='*'>404 Bad Request</Route>
         </Switch>
       </div>
-
     </BrowserRouter>
   )
 }

@@ -1,11 +1,26 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
+import axios from 'axios'
+import { GLOBAL } from '../GLOBAL'
 
 import './style.css'
 // import img from '../uploads/1603535756154.png'
 
 export function About({ items, uzItem, ruItem }) {
+    const admin_url = GLOBAL.admin_url
+    const localhost = GLOBAL.backend
+    const frontend = GLOBAL.frontend
+
     const { t } = useTranslation()
+    const [about, setAbout] = useState([])
+
+    useEffect(() => {
+        const fetchData = async () => {
+            let result = await axios(`${localhost}/api/about`)
+            setAbout(result.data)
+        }
+        fetchData()
+    }, [])
 
     return (
         <div id='about'>
@@ -24,12 +39,9 @@ export function About({ items, uzItem, ruItem }) {
                         </div>
 
                         <div class="col-lg-6 pt-3 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
-                            <h3 class='mb-3'> {t("about_theme")}  </h3>
+                            <h3 class='mb-3'> {about.title}  </h3>
                             <p class="text-justify">
-                                {t("about_body1")}
-                            </p>
-                            <p class="text-justify">
-                                {t("about_body2")}
+                                {about.body}
                             </p>
                         </div>
 

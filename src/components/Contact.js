@@ -1,8 +1,24 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
+import React, { useState, useEffect } from 'react'
+import { useTranslation } from "react-i18next";
+import axios from 'axios'
+import { GLOBAL } from '../GLOBAL'
 
 export function Contact() {
     const { t } = useTranslation()
+    const admin_url = GLOBAL.admin_url
+    const localhost = GLOBAL.backend
+    const frontend = GLOBAL.frontend
+
+
+    const [about, setAbout] = useState([])
+
+    useEffect(() => {
+        const fetchData = async () => {
+            let result = await axios(`${localhost}/api/about`)
+            setAbout(result.data)
+        }
+        fetchData()
+    }, [])
 
     return (
         <div id='contact'>
@@ -26,20 +42,20 @@ export function Contact() {
                                     <div class="address">
                                         <i class="icofont-google-map"></i>
                                         <h4> {t('address')} : </h4>
-                                        <p>Тошкент шаҳар Юнусобод тумани</p>
+                                        <p>{about.address}</p>
                                     </div>
 
                                     <div class="email">
                                         <i class="icofont-envelope"></i>
                                         <h4>Электрон почта:</h4>
-                                        <p>info@example.com</p>
+                                        <p>{about.email}</p>
                                     </div>
 
                                     <div class="phone">
                                         <i class="icofont-phone"></i>
                                         <h4>Телефон номер:</h4>
-                                        <a href='tel:+998998032314'> +998 99 803 23 14</a><br />
-                                        <a href='tel:+998903719371' class='ml-5 mt-5'> +998 90 371 93 71</a>
+                                        <a href={`tel:${about.phone1}`}>{about.phone1}</a><br />
+                                        <a href={`tel:${about.phone2}`} class='ml-5 mt-5'> {about.phone2}</a>
                                     </div>
                                     <div class='social_media'>
                                         <a href=""><i class="icofont-telegram"></i></a>

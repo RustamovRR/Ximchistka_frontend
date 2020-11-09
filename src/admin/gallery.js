@@ -55,7 +55,7 @@ export function AdminGallery() {
                             <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
                                 <form method='POST' action={`${localhost}/api/gallery/${img._id}`}>
                                     <a href={`${localhost}/api/${img.image}`} target='_blank' class="venobox" data-gall="gallery-item">
-                                        <img src={`${localhost}/api/${img.image}`} alt='galereya' class="img-fluid" key={img._id} />
+                                        <img src={`${localhost}/api/${img.image}`} alt='ximchistka ximchistka24 uz' class="img-fluid" key={img._id} />
                                     </a>
                                     <button type='submit' class='btn btn-danger' > O'chirish </button>
                                 </form>

@@ -1,15 +1,30 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useTranslation } from "react-i18next";
+import axios from 'axios'
+import { GLOBAL } from '../GLOBAL'
 
 import './style.css'
 import logo from '../img/logo.jpg'
 
 export function Header() {
+    const admin_url = GLOBAL.admin_url
+    const localhost = GLOBAL.backend
+    const frontend = GLOBAL.frontend
     const { t, i18n } = useTranslation()
 
     const changeLanguage = lng => {
         i18n.changeLanguage(lng)
     }
+
+    const [about, setAbout] = useState([])
+
+    useEffect(() => {
+        const fetchData = async () => {
+            let result = await axios(`${localhost}/api/about`)
+            setAbout(result.data)
+        }
+        fetchData()
+    }, [])
 
     return (
         <div>
@@ -39,10 +54,10 @@ export function Header() {
                                 </li>
                             </ul>
                             <span class="navbar-text">
-                                <a href="tel:+998998032314" class="navbar_link ml-auto text-primary">+998 99 803 23 14</a>
+                                <a href={`tel:${about.phone1}`} class="navbar_link ml-auto text-primary">{about.phone1}</a>
                             </span>
                             <span class="navbar-text">
-                                <a href="tel:+998903719371" class="navbar_link ml-5 text-primary">+998 90 371 93 71</a>
+                                <a href={`tel:${about.phone2}`} class="navbar_link ml-5 text-primary">{about.phone2}</a>
                             </span>
                             <span class='ml-5'>
                                 <span class='button' onClick={() => changeLanguage('uzb')}>

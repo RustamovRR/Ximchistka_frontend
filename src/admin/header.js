@@ -1,43 +1,43 @@
 import React, { useEffect, useState } from 'react'
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Link, Route, Switch, } from 'react-router-dom'
 import { AdminABout } from './about';
 import { AdminGallery } from './gallery';
 import { AdminService } from './service';
 import axios from 'axios';
 import logo from '../img/logo.jpg'
 import { GLOBAL } from './../GLOBAL';
+import { AdminWelcome } from './welcome';
 
 export function HeaderAdmin() {
-
-    const [uzLang, setUzLang] = useState([])
-    const [ruLang, setRuLang] = useState([])
-    const [phone, setPhone] = useState([])
 
     const admin_url = GLOBAL.admin_url
     const localhost = GLOBAL.backend
     const frontend = GLOBAL.frontend
 
+    const [service, setService] = useState([])
+
+    const handleChange = (e) => {
+        setService(e.target.value)
+    }
 
     useEffect(() => {
         const fetchData = async () => {
-            let result = await axios(`${localhost}/api/about`)
-            setUzLang(result.data)
-            setRuLang(result.data.ru)
-            setPhone(result.data.phone)
+            let result = await axios(`${localhost}/api/service`)
+            setService(result.data)
         }
         fetchData()
     }, [])
-
 
     return (
         <BrowserRouter>
             <div class="d-flex" id="wrapper">
 
-                <div class="bg-light border-right pt-5" id="sidebar-wrapper" style={{ height: '100vh' }} >
+                <div class="bg-light border-right pt-5" id="sidebar-wrapper" style={{ height: '100vh', width: 200 }} >
                     <div class="list-group list-group-flush ">
-                        <Link to={`/${admin_url}/gallery`} class="list-group-item list-group-item-action bg-light">Галерея</Link>
+                        <Link to={`/${admin_url}/welcome`} class="list-group-item list-group-item-action bg-light">Хуш келибсиз</Link>
                         <Link to={`/${admin_url}/about`} class="list-group-item list-group-item-action bg-light">Биз ҳақимизда</Link>
                         <Link to={`/${admin_url}/service`} class="list-group-item list-group-item-action bg-light">Хизматлар</Link>
+                        <Link to={`/${admin_url}/gallery`} class="list-group-item list-group-item-action bg-light">Галерея</Link>
                     </div>
 
                 </div>
@@ -73,9 +73,10 @@ export function HeaderAdmin() {
 
                     <div class="container-fluid mt-5">
                         <Switch>
-                            <Route exact path={`/${admin_url}/service`}><AdminService items={uzLang} /></Route>
-                            <Route exact path={`/${admin_url}/gallery`}><AdminGallery /></Route>
+                            <Route exact path={`/${admin_url}/welcome`}><AdminWelcome /></Route>
                             <Route exact path={`/${admin_url}/about`}><AdminABout /></Route>
+                            <Route exact path={`/${admin_url}/service`}><AdminService /></Route>
+                            <Route exact path={`/${admin_url}/gallery`}><AdminGallery /></Route>
                         </Switch>
                     </div>
                 </div>
