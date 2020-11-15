@@ -4,7 +4,7 @@ import axios from 'axios'
 import { GLOBAL } from '../GLOBAL'
 
 import './style.css'
-import logo from '../img/logo.jpg'
+import logo from '../img/logo1.jpg'
 
 export function Header() {
     const admin_url = GLOBAL.admin_url
